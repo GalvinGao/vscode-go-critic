@@ -1,12 +1,14 @@
 {
 	"name": "go-critic-imgg",
 	"displayName": "Go Critic (customizable)",
-	"description": "",
+	"description": "Lints your Go code with go-critic, with some customizable options",
 	"version": "0.1.1",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
 	"categories": [
+		"Linters",
+		"Programming Languages",
 		"Other"
 	],
 	"activationEvents": [
@@ -17,6 +19,10 @@
 		"type": "git",
 		"url": "https://github.com/GalvinGao/vscode-go-critic"
 	},
+	"bugs": {
+		"url": "https://github.com/GalvinGao/vscode-go-critic/issues"
+	},
+	"icon": "assets/logo.png",
 	"publisher": "imgg",
 	"contributes": {
 		"configuration": [
