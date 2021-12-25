@@ -2,7 +2,7 @@
 	"name": "go-critic-imgg",
 	"displayName": "Go Critic (customizable)",
 	"description": "Lints your Go code with go-critic, with some customizable options",
-	"version": "0.1.1",
+	"version": "1.0.0",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
