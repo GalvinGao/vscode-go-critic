@@ -1,6 +1,6 @@
 {
-	"name": "go-critic",
-	"displayName": "Go Report",
+	"name": "go-critic-imgg",
+	"displayName": "Go Critic (customizable)",
 	"description": "",
 	"version": "0.0.1",
 	"engines": {
@@ -17,6 +17,7 @@
 		"type": "git",
 		"url": "https://github.com/GalvinGao/vscode-go-critic"
 	},
+	"publisher": "imgg",
 	"contributes": {
 		"configuration": [
 			{
@@ -36,12 +37,11 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"vscode:prepublish": "yarn run esbuild-base -- --minify",
+		"esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+		"esbuild": "npm run esbuild-base -- --sourcemap",
+		"esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+		"test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.4",
@@ -51,6 +51,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.1.0",
 		"@typescript-eslint/parser": "^5.1.0",
 		"@vscode/test-electron": "^1.6.2",
+		"esbuild": "^0.14.8",
 		"eslint": "^8.1.0",
 		"glob": "^7.1.7",
 		"mocha": "^9.1.3",

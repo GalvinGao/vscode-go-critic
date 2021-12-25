@@ -33,12 +33,9 @@ export function deactivate() {}
 
 class GoCritic {
   diagnosticCollection: vscode.DiagnosticCollection = vscode.languages.createDiagnosticCollection()
-  logger: vscode.OutputChannel = vscode.window.createOutputChannel('Go Report')
+  logger: vscode.OutputChannel = vscode.window.createOutputChannel('Go Critic (customizable)')
 
   activate(subscriptions: vscode.Disposable[]) {
-    vscode.window.showInformationMessage('Go Critic is now active!')
-    console.log('Go Critic is now active! (console)')
-
     vscode.workspace.onDidOpenTextDocument(this.doLint, this, subscriptions)
     vscode.workspace.onDidCloseTextDocument(
       (textDocument) => {
