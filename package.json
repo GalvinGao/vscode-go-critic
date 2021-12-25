@@ -1,0 +1,63 @@
+{
+	"name": "go-critic",
+	"displayName": "Go Report",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:go"
+	],
+	"main": "./out/extension.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/GalvinGao/vscode-go-critic"
+	},
+	"contributes": {
+		"configuration": [
+			{
+				"title": "Go Critic",
+				"properties": {
+					"go-critic.ignoredCheckers": {
+						"type": "array",
+						"description": "List of checkers to ignore",
+						"default": []
+					},
+					"go-critic.verbose": {
+						"type": "boolean",
+						"default": false
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.63.0",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"@vscode/test-electron": "^1.6.2",
+		"eslint": "^8.1.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.3",
+		"typescript": "^4.4.4"
+	},
+	"dependencies": {
+		"global": "^4.4.0",
+		"vsce": "^2.5.3"
+	}
+}
